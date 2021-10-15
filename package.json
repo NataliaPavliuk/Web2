@@ -1,21 +1,24 @@
 {
   "name": "lab1",
   "version": "1.0.0",
-  "description": "lab1",
-  "main": "main.js",
+  "description": "Lab1",
+  "main": "server.js",
+  "dependencies": {
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.14.1",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.18.10"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "author": "Natalia Pavliuk",
-  "license": "MIT",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.31.0",
-    "@typescript-eslint/parser": "^4.31.0",
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.24.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.1.0",
-    "typescript": "^4.4.2"
-  }
+  "license": "MIT"
 }

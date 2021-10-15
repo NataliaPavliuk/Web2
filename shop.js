@@ -3,15 +3,15 @@
 var goodsmod = require("./goods")
 
 class Shop{
-    constructor(id, products){
-    this.id=id
-    this.products = products
+    constructor(name, address){
+    this.name=name
+    this.address = address
     }
 }
 
 //a
-function addShop(products, id, shops){
-shops.push(new Shop(id, new goodsmod.Product(products)));
+function addShop(address, name, shops){
+shops.push(new Shop(name, address));
 }
 
 module.exports = {
@@ -23,20 +23,23 @@ module.exports = {
     } 
 
 //b
-function editShop(shops, index, newId=shops[index].id, newProduct=shops[index].products){
-    shops[index].id=newId;
-    shops[index].products=newProduct;
+function editShop(shops, searchname, newName=shops[index].name, newAddress=shops[index].address){
+    const names = shops.map(el => el.name);
+    var index = names.indexOf(searchname);
+    shops[index].name=newName;
+    shops[index].address=newAddress;
 }
 
 //c
-function deleteShop(shops, index){
-    shops.splice(index,1);
+function deleteShop(shops, searchname){
+    const names = shops.map(el => el.name);
+    shops.splice(names.indexOf(searchname),1);
 }
 
 //d
-function SearchShop(shops, index){
+function SearchShop(shops, searchname){
     console.log("Searching shop:")
-    console.log(shops[index])
+    console.log(shops.find(el => el.name == searchname))
 }
 
 

@@ -1,8 +1,10 @@
 
 
 class Product{
-    constructor(name){
-    this.name=name
+    constructor(id,name,country){
+        this.id=id
+        this.name=name
+        this.country=country
     }
 }
 
@@ -15,14 +17,21 @@ module.exports = {
     } 
 
 //e
-function addProduct(products, goods){
-    goods.push(new Product(products));
+function addProduct(id, products, country, goods){
+    ids = goods.map(el => el.id); 
+    if( ids.includes(id)){
+        console.log("This id exists")
+    }
+    else{
+    goods.push(new Product(id, products, country));
+    }
     }
 
 //f
-function editProduct(goods, index, newProduct=goods[index].name){
+function editProduct(goods, index, newProduct=goods[index].name, newCountry=goods[index].country){
     
     goods[index].name=newProduct;
+    goods[index].country=newCountry
 }
 
 //g
