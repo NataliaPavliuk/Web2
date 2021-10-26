@@ -1,27 +1,23 @@
-const path = require('path')
 
-const express = require('express')
-const app = express()
+var express=require('express');
 
-app.use(express.static(__dirname))
+var app=express();
 
-app.set('views', path.join(__dirname, '/static/views'))
-app.set('view engine', 'pug')
+app.use(express.static(__dirname));
 
-app.get('/', function (request, response) {
-  response.render('pages/index', { title: 'Home' })
+app.get('/',function(req,res){
+ res.sendFile(__dirname+'/index.html');
+ 
 })
-app.get('/shop', function (request, response) {
-  response.render('pages/shop', { title: 'Shop' })
-})
-app.get('/goods', function (request, response) {
-    response.render('pages/goods', { title: 'Goods' })
-  })
-app.get('/storages', function (request, response) {
-    response.render('pages/storages', { title: 'Storages' })
-  })
-app.get('/productstorages', function (request, response) {
-    response.render('pages/productstorages', { title: 'Product in Storages' })
-  })
 
-app.listen(process.env.PORT || 8080)
+app.listen(process.env.PORT||8080);
+
+console.log('Run server!');
+
+var fs=require('fs');
+app.get('/getusers',function(req,res){
+ fs.readFile('data.json','utf-8',function(err,data){
+ console.log(data);
+ res.send(data);
+ })
+})
